@@ -26,7 +26,10 @@ navigator.mediaDevices.getUserMedia({
         connectToNewUser(userId, stream);
     })
     socket.on('user-disconnected', (userId)=>{
-        document.getElementById("id"+userId).remove();
+        const v = document.getElementById("id"+userId);
+        if (v) {
+            v.remove();
+        }
     })
 })
 
