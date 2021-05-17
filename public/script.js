@@ -3,7 +3,7 @@ const videoGrid = document.getElementById('video-grid')
 const myVideo = document.createElement('video');
 myVideo.muted = true;
 
-var peer = new Peer(undefined)
+var peer = new Peer()
 
 let myvideoStream
 navigator.mediaDevices.getUserMedia({
@@ -26,7 +26,7 @@ navigator.mediaDevices.getUserMedia({
         connectToNewUser(userId, stream);
     })
     socket.on('user-disconnected', (userId)=>{
-        document.getElementById(userId).remove();
+        document.getElementById("id"+userId).remove();
     })
 })
 
@@ -46,7 +46,7 @@ const connectToNewUser = (userId, stream) => {
 
 const addVideoStream = (video, stream, userId) => {
     video.srcObject = stream;
-    video.id = userId;
+    video.id = "id"+userId;
     video.addEventListener('loadedmetadata', ()=> {
         video.play();
     })
