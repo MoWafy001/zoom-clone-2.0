@@ -13,6 +13,10 @@ navigator.mediaDevices.getUserMedia({
     myvideoStream = stream;
     addVideoStream(myVideo, stream, "myCam");
 
+    if (peer.open) {
+        socket.emit('join-room', ROOM_ID, peer.id)
+    }
+    
     peer.on('call', call=>{
         call.answer(stream)
         const video = document.createElement('video')
@@ -33,11 +37,6 @@ navigator.mediaDevices.getUserMedia({
     })
 })
 
-peer.on('open', id => {
-    socket.emit('join-room', ROOM_ID, id)
-})
-
-
 const connectToNewUser = (userId, stream) => {
     const call = peer.call(userId, stream);
     const video = document.createElement('video');
@@ -45,7 +44,6 @@ const connectToNewUser = (userId, stream) => {
         addVideoStream(video, userVideoStream, userId)
     })
 }
-
 
 const addVideoStream = (video, stream, userId) => {
     video.srcObject = stream;

@@ -35,4 +35,7 @@ io.on('connection', socket => {
   
 
 
-server.listen(process.env.PORT||3030)
+const PORT = process.env.PORT||3030
+server.listen(PORT, ()=>{
+	console.log("running on port: "+PORT);
+})
