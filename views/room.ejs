@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoom clone</title>
 
+    <meta property="og:site_name" content="Mohamed Zoom Clone">
+    <meta property="og:title" content="ادخل يالا" />
+    <meta property="og:type" content="website" />
+
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -16,7 +20,9 @@
     
 </head>
 <body>
-    <div id="video-grid"></div>
+    <div style="height: 100%; display: flex; justify-content: center; align-items: center; background: #021426; overflow: auto;">
+        <div id="video-grid"></div>
+    </div>
     <div id="controls">
         <span id="toggleVideo" onclick="tv();">disable video</span>
         <span id="toggleAudio" onclick="ta();">mute</span>

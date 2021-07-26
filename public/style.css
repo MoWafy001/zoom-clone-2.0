@@ -7,41 +7,42 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 #video-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #111;
-    height: 100%;
-    flex-wrap: wrap;
     overflow: auto;
+    text-align: center;
+    margin: 15px;
 }
 video {
-    height: 300px;
-    width: 400px;
+    height: calc( 0.75 * 30vw);
+    width: 30vw;
+    max-width: 400px;
+    max-height: 300px;
     object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 0 5px 5px #2d462f;
+    border-radius: 8px;
     margin: 15px;
     transform: scaleX(-1);
 }
+#idmyCam{
+    border: 2px solid #79b2fc;
+}
 #controls{
-    background: #222;
+    background: #02070c;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 0;
-    box-shadow: 0 -5px 5px 0 #555;
+    box-shadow: 0 -5px 5px 0 #79b2fcaa;
+    z-index: 999;
 }
 #controls span{
     color: #000;
-    background: #555;
+    background: #79b2fc;
     margin: 10px;
     padding: 10px;
     border-radius: 12px;
     cursor: default;
 }
 #controls span:hover{
-    background: #333;
+    background: #79b2fc70;
 }
 #controls span::selection{
     background: none;
